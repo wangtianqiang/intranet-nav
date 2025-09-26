@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  intranet-nav:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./config.json:/app/config.json
+      - ./public/icons:/app/public/icons
+    networks:
+      - intranet-network
+
+networks:
+  intranet-network:
+    driver: bridge
