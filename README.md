@@ -15,6 +15,19 @@
 - ✅ 一键直达目标网页
 - ✅ Docker 部署，方便运行在内网
 
+## 项目结构
+intranet-nav/
+├── Dockerfile
+├── docker-compose.yml
+├── server.js
+├── config.json
+├── public/
+│   ├── index.html
+│   └── icons/
+│       └── example.png
+└── README.md
+
+
 ## 使用方法
 
 ### 1. 准备工作
@@ -34,3 +47,10 @@ cd intranet-nav
 
 # 启动服务
 docker-compose up -d
+
+打开浏览器，访问： http://<服务器IP>:3000
+
+配置说明
+config.json：配置导航项、标题、背景等
+public/icons/：存放自定义图标文件（如 example.png）
+index.html：前端页面，支持响应式布局
