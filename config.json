@@ -1,0 +1,24 @@
+{
+  "title": "内网导航站",
+  "background": "#f0f0f0",
+  "navs": [
+    {
+      "name": "公司邮箱",
+      "url": "http://mail.company.com",
+      "icon": "fa-envelope",
+      "color": "#1e90ff"
+    },
+    {
+      "name": "文件共享",
+      "url": "http://share.company.com",
+      "icon": "fa-folder",
+      "color": "#32cd32"
+    },
+    {
+      "name": "OA系统",
+      "url": "http://oa.company.com",
+      "icon": "fa-user",
+      "color": "#ff6347"
+    }
+  ]
+}
