@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>内网导航站</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .nav-item {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .nav-item:hover {
+      transform: translateY(-5px);
+    }
+    .nav-icon {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #1e90ff;
+    }
+    .nav-name {
+      font-weight: bold;
+      color: #333;
+    }
+    .nav-item:hover {
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">内网导航站</h1>
+    <div class="nav-grid" id="nav-grid"></div>
+  </div>
+
+  <script>
+    fetch('/api/config')
+      .then(res => res.json())
+      .then(data => {
+        const grid = document.getElementById('nav-grid');
+        data.navs.forEach((nav, index) => {
+          const item = document.createElement('div');
+          item.className = 'nav-item';
+          item.innerHTML = `
+            <div class="nav-icon">
+              <i class="${nav.icon}"></i>
+            </div>
+            <div class="nav-name">${nav.name}</div>
+          `;
+          item.onclick = () => {
+            window.location.href = `/go/${index}`;
+          };
+          grid.appendChild(item);
+        });
+      })
+      .catch(err => console.error('加载配置失败:', err));
+  </script>
+</body>
+</html>
