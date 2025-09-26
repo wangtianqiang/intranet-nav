@@ -26,7 +26,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/yourname/intranet-nav.git
+git clone https://github.com/wangtianqiang/intranet-nav.git
 cd intranet-nav
 
 # 修改配置文件 config.json（添加您的导航项）
